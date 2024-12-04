@@ -1,0 +1,65 @@
+<header>
+  <nav class="navbar navbar-expand-lg" >
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="main_logo.png" alt="Personal Finance Manager">
+        <span>Personal Finance Manager</span>
+      </a>
+      <button class="navbar-toggler" type="button" (click)="toggleMenu()" 
+              [attr.aria-expanded]="isMenuOpen">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" [class.show]="isMenuOpen" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" fragment="tools">Tools</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" fragment="services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" fragment="contact">Contact</a>
+          </li>
+        </ul>
+        <div class="auth-buttons">
+          <a class="btn btn-login" routerLink="/login">Login</a>
+          <a class="btn btn-signup" routerLink="/signup">Signup</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container mt-5">
+  <h1 class="display-4 mb-2">BLOGS</h1>
+  <p class="text-muted mb-5">
+    Gain valuable financial insights and strategies from our team's extensive experience. We're dedicated to
+    sharing our knowledge and empowering you to make informed decisions in personal finance and investment.
+  </p>
+
+  <div class="row g-4">
+    <div class="col-12 mb-4" *ngFor="let post of blogPosts">
+      <div class="card h-100 shadow-sm" (click)="navigateToBlogPost(post.title)" style="cursor: pointer;">
+        <div class="row g-0">
+          <div class="col-md-8">
+            <div class="card-body p-4">
+              <h2 class="card-title h3 mb-3">{{post.title}}</h2>
+              <div class="d-flex align-items-center text-muted mb-3">
+                <small>{{post.author}} | {{post.date}}</small>
+              </div>
+              <p class="card-text">{{post.description}}</p>
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-link">Read More →</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img [src]="post.image" class="img-fluid rounded-end h-100" [alt]="post.title" style="object-fit: cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

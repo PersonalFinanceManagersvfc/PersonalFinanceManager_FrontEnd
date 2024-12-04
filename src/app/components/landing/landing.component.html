@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Finance Manager</title>
+  <meta name="description" content="Take Control of Your Money, One Step at a Time">
+  <link rel="icon" type="image/png" href="main_logo.png">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg" [class.scrolled]="isScrolled">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="main_logo.png" alt="Personal Finance Manager">
+          <span>Personal Finance Manager</span>
+        </a>
+        <button class="navbar-toggler" type="button" (click)="toggleMenu()" 
+                [attr.aria-expanded]="isMenuOpen">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" [class.show]="isMenuOpen" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/" fragment="tools" (click)="closeMenu()">Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/" fragment="services" (click)="closeMenu()">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/blog" (click)="closeMenu()" routerLinkActive="active">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/" fragment="contact" (click)="closeMenu()">Contact</a>
+            </li>
+          </ul>
+          <div class="auth-buttons">
+            <a class="btn btn-login" routerLink="/login" (click)="closeMenu()">Login</a>
+            <a class="btn btn-signup" routerLink="/signup" (click)="closeMenu()">Signup</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="heading-image.png" alt="Background" class="hero-image">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 hero-text">
+          <h1>Take Control of Your Money,<br>One Step at a Time</h1>
+          <p>Personal Finance Manager will leverage analytics to optimize financial strategies and track personal finances, helping you transform your financial future.</p>
+          <a href="#contact" class="btn btn-light btn-lg">Contact Us</a>
+        </div>
+        <div class="col-lg-6 hero-illustration">
+          <img src="heading-image.png" alt="Finance Illustration" class="img-fluid desktop-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="container py-5" id="team">
+      <h2 class="text-center mb-5">Our Team</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="team-member text-center">
+            <img src="assets/images/team/john-doe.jpg" alt="Team Member" class="rounded-circle mb-3">
+            <h5>John Doe</h5>
+            <p class="text-muted">Financial Expert And Developer</p>
+            <p class="team-description">A dedicated financial expert passionate about helping others achieve financial freedom. With years of experience in personal finance, John's insights drive our mission to create accessible, intuitive financial tools for everyone.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="me-2"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+              <a href="#"><i class="bi bi-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="team-navigation text-center mt-4">
+        <button class="btn btn-primary rounded-circle me-2"><i class="bi bi-chevron-left"></i></button>
+        <button class="btn btn-primary rounded-circle"><i class="bi bi-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <section class="services bg-light py-5" id="services">
+      <div class="container">
+        <h2 class="text-center mb-5">Our Services</h2>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="service-card h-100">
+              <div class="service-icon mb-4">
+                <i class="bi bi-piggy-bank text-primary"></i>
+              </div>
+              <h5>Smart Budgeting Tools</h5>
+              <p>Effortlessly create and manage personalized budgets to track spending and set savings goals.</p>
+              <a href="#" class="btn btn-outline-primary mt-3">See more</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="service-card h-100">
+              <div class="service-icon mb-4">
+                <i class="bi bi-graph-up text-primary"></i>
+              </div>
+              <h5>Investment Tracker</h5>
+              <p>Monitor your investment performance in real-time to make informed decisions.</p>
+              <a href="#" class="btn btn-outline-primary mt-3">See more</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="service-card h-100">
+              <div class="service-icon mb-4">
+                <i class="bi bi-cash-stack text-primary"></i>
+              </div>
+              <h5>Debt Reduction Planner</h5>
+              <p>Customize strategies to pay off debt faster and track your progress.</p>
+              <a href="#" class="btn btn-outline-primary mt-3">See more</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="service-card h-100">
+              <div class="service-icon mb-4">
+                <i class="bi bi-calculator text-primary"></i>
+              </div>
+              <h5>Tax Optimization Assistant</h5>
+              <p>Identify deductions and track expenses to maximize your tax savings.</p>
+              <a href="#" class="btn btn-outline-primary mt-3">See more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer bg-dark text-white py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6>Company</h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">About Us</a></li>
+            <li><a href="#" class="text-white">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6>Services</h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Smart Budgeting Tools</a></li>
+            <li><a href="#" class="text-white">Investment Tracker</a></li>
+            <li><a href="#" class="text-white">Debt Reduction Planner</a></li>
+            <li><a href="#" class="text-white">Tax Optimization Assistant</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6>Explore</h6>
+          <ul class="list-unstyled">
+            <li><a href="/blog" class="text-white">Blogs</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6>Follow Us</h6>
+          <div class="social-icons">
+            <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <img src="main_logo.png" alt="Placeholder" class="img-fluid mb-3 " style="max-width: 50px;">
+        <p>&copy; 2024 Personal Finance Manager. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

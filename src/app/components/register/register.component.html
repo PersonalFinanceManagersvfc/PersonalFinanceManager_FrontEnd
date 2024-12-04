@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center min-vh-100">
+    <div class="col-md-4">
+      <div class="card shadow">
+        <div class="card-body p-4">
+          <h2 class="text-center mb-4">REGISTER</h2>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="email" formControlName="email" placeholder="Email">
+            </div>
+            
+            <div class="mb-3 position-relative">
+              <label for="password" class="form-label">Password:</label>
+              <div class="input-group">
+                <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password" formControlName="password" placeholder="Password">
+                <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility('password')">
+                  <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="mb-3 position-relative">
+              <label for="confirmPassword" class="form-label">Confirm Password:</label>
+              <div class="input-group">
+                <input [type]="showConfirmPassword ? 'text' : 'password'" class="form-control" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password">
+                <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility('confirmPassword')">
+                  <i class="bi" [ngClass]="showConfirmPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="otp" class="form-label">OTP:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="otp" formControlName="otp" placeholder="OTP Code">
+                <button class="btn btn-outline-secondary" type="button" (click)="resendOtp()" [disabled]="timer > 0">
+                  Resend? ({{timer}}s)
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-danger w-100 mb-3">REGISTER</button>
+
+            <div class="text-center">
+              <p class="mb-0">Already have an account? <a routerLink="/login" class="text-decoration-none">Login</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
